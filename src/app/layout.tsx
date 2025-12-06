@@ -3,6 +3,8 @@ import { Analytics } from "@vercel/analytics/react";
 import { inter } from "./fonts";
 import Navigation from "@/components/navigation/navigation.component";
 import Footer from "@/components/footer/footer.component";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 import "./globals.css";
 
@@ -32,11 +34,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className="scroll-smooth">
-      <body className={`${inter.className} bg-slate-50 text-slate-900`}>
-        <Navigation />
-        {children}
-        <Analytics />
-        <Footer />
+      <body
+        className={`${inter.className} bg-slate-50 text-slate-900 transition-colors dark:bg-slate-950 dark:text-slate-50`}
+      >
+        <ThemeProvider>
+          <LanguageProvider>
+            <Navigation />
+            {children}
+            <Analytics />
+            <Footer />
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

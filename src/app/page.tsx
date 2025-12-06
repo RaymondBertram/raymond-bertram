@@ -8,7 +8,7 @@ import { TechStackSection } from "@/components/landing/tech-stack";
 
 export default function App() {
   return (
-    <div className="bg-gradient-to-b from-slate-50 via-white to-slate-50 pb-20 pt-28">
+    <div className="bg-gradient-to-b from-slate-50 via-white to-slate-50 pb-20 pt-28 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       <main className="ge-container space-y-10">
         <HeroSection />
         <AboutSection />
