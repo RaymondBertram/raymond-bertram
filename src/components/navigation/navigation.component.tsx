@@ -7,18 +7,18 @@ import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Navigation() {
   const { language, setLanguage, t } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, mounted } = useTheme();
   const [open, setOpen] = useState(false);
 
   const toggle = () => setOpen((prev) => !prev);
   const close = () => setOpen(false);
 
   const navLinks = [
-    { label: t.nav.about, href: "#about" },
-    { label: t.nav.services, href: "#services" },
-    { label: t.nav.projects, href: "#projects" },
-    { label: t.nav.process, href: "#process" },
-    { label: t.nav.contact, href: "#contact" },
+    { label: t.nav.about, href: "/#about" },
+    { label: t.nav.services, href: "/#services" },
+    { label: t.nav.projects, href: "/#projects" },
+    { label: t.nav.process, href: "/#process" },
+    { label: t.nav.contact, href: "/#contact" },
   ];
 
   return (
@@ -35,13 +35,13 @@ export default function Navigation() {
 
           <nav className="hidden items-center gap-8 text-sm font-medium text-slate-700 dark:text-slate-300 lg:flex">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="hover:text-slate-900 dark:hover:text-white"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -71,14 +71,14 @@ export default function Navigation() {
               aria-label="Toggle dark mode"
               className="hidden rounded-full border border-slate-200 bg-white/70 p-2 text-slate-800 hover:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700 lg:inline-flex"
             >
-              {theme === "dark" ? "☀️" : "🌙"}
+              {mounted ? (theme === "dark" ? "🌙" : "☀️") : "☀️"}
             </button>
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               className="hidden rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-[1px] hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 lg:inline-block"
             >
               {t.nav.cta}
-            </a>
+            </Link>
             <button
               type="button"
               onClick={toggle}
@@ -132,27 +132,27 @@ export default function Navigation() {
                 aria-label="Toggle dark mode"
                 className="rounded-full border border-slate-200 bg-white/70 p-2 text-slate-800 hover:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
               >
-                {theme === "dark" ? "☀️" : "🌙"}
+                {mounted ? (theme === "dark" ? "🌙" : "☀️") : "☀️"}
               </button>
             </div>
             <div className="flex flex-col gap-3 text-sm font-medium text-slate-800 dark:text-slate-200">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={close}
                   className="rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-800/80"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href="#contact"
+              <Link
+                href="/#contact"
                 onClick={close}
                 className="mt-2 inline-flex items-center justify-center rounded-xl bg-slate-900 px-3 py-2 text-white dark:bg-white dark:text-slate-900"
               >
                 {t.nav.cta}
-              </a>
+              </Link>
             </div>
           </div>
         )}

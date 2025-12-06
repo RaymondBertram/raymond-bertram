@@ -40,12 +40,17 @@ export type TranslationContent = {
     groups: { title: string; items: string[] }[];
   };
   projects: {
-    eyebrow: string;
-    title: string;
-    description: string;
+    heading: string;
+    subheading: string;
     cta: string;
     detailsLabel: string;
-    projects: { title: string; description: string; tags: string[] }[];
+    items: {
+      id: string;
+      title: string;
+      role: string;
+      shortDescription: string;
+      tags: string[];
+    }[];
   };
   process: {
     eyebrow: string;
@@ -184,47 +189,77 @@ export const translations: Record<Language, TranslationContent> = {
       groups: [
         {
           title: "Frontend",
-          items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+          items: [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Framer Motion",
+          ],
         },
         {
           title: "Backend",
-          items: ["Node.js", "REST APIs", "Next API Routes", "Prisma (optional)", "Auth"],
+          items: [
+            "Node.js",
+            "REST APIs",
+            "Next API Routes",
+            "Prisma (optional)",
+            "Auth",
+          ],
         },
         {
           title: "Deployment",
-          items: ["Vercel", "Docker", "CI/CD-Pipelines", "Monitoring & Logging"],
+          items: [
+            "Vercel",
+            "Docker",
+            "CI/CD-Pipelines",
+            "Monitoring & Logging",
+          ],
         },
       ],
     },
     projects: {
-      eyebrow: "Projekte",
-      title: "Ausgewählte Arbeiten und MVPs.",
-      description:
-        "Von Landingpage bis Dashboard – immer mit Fokus auf Nutzbarkeit und schnelle Iteration.",
+      heading: "Projekte",
+      subheading:
+        "Eine Auswahl von Projekten, bei denen ich digitale Produkte, Apps und Websites konzipiert, entwickelt oder weiterentwickelt habe.",
       cta: "Lass uns sprechen",
-      detailsLabel: "Details folgen",
-      projects: [
+      detailsLabel: "Mehr erfahren",
+      items: [
         {
-          title: "Kundenportal für Services",
-          description: "Self-Service Portal mit Login, Ticket-Übersicht und Echtzeit-Status.",
-          tags: ["Next.js", "TypeScript", "REST", "Tailwind"],
+          id: "motoInside",
+          title: "Moto Inside – Werbeseite",
+          role: "Webentwicklung & Datenvisualisierung",
+          shortDescription:
+            "Responsives Werbe- und Landingpage-Konzept für ein niederländisches Motocross-Unternehmen. Umsetzung in Webflow inklusive eingebettetem Balkendiagramm, Kontaktformular für Angebotsanfragen und klarer Story rund um Nachwuchs- und Standortförderung im Motorsport.",
+          tags: [
+            "HTML/CSS",
+            "Webflow Development",
+            "JavaScript",
+            "Figma Design",
+          ],
         },
         {
-          title: "Landing + Mini-Shop",
-          description: "Leichte Produktverwaltung, Checkout-Flow und Conversion-Tracking.",
-          tags: ["Next.js", "UX", "Payments", "Analytics"],
+          id: "lifebonusPro",
+          title: "LifeBonus Pro – Mobile App",
+          role: "Full-Stack Entwicklung",
+          shortDescription:
+            "Mobile App, die Pflegekräfte bei Bewegung, Achtsamkeit und präventiver Gesundheitsförderung unterstützt. Mitarbeit als Full-Stack Entwickler: neue Features mit React Native, TypeScript und AWS umgesetzt und bestehende Funktionen in einem agilen Team weiterentwickelt.",
+          tags: [
+            "React Native",
+            "TypeScript",
+            "React",
+            "AWS",
+            "Python",
+            "Agile Entwicklung",
+          ],
         },
         {
-          title: "Interne Dashboard-Lösung",
-          description:
-            "Kennzahlen, Tabellen und Exporte für wöchentliche Reports – performant und klar.",
-          tags: ["React", "Charts", "Automatisierung"],
-        },
-        {
-          title: "Mobile MVP für Events",
-          description:
-            "Cross-Platform App mit Push-Updates, Offline-Infos und Feedback-Formular.",
-          tags: ["Mobile", "API", "UX", "Feedback-Loops"],
+          id: "helloTraffic",
+          title: "Hello Traffic – Standortanalyse",
+          role: "Produktentwicklung & Frontend",
+          shortDescription:
+            "Plattform für hochpräzise Frequenzanalysen von Standorten – für Expansionsmanager, Projektentwickler, Makler, Eigentümer und Centermanager. Auf Basis von täglich über 50 Mio. anonymisierten GPS-Datenpunkten werden Standortentscheidungen datenbasiert statt aus dem Bauch heraus getroffen.",
+          tags: ["React", "Node.js", "Express.js", "Data Analytics"],
         },
       ],
     },
@@ -236,7 +271,8 @@ export const translations: Record<Language, TranslationContent> = {
       steps: [
         {
           title: "Erstgespräch & Anforderungen",
-          description: "Wir klären Ziele, Prioritäten und Rahmen. Kurz, fokussiert, ohne Buzzwords.",
+          description:
+            "Wir klären Ziele, Prioritäten und Rahmen. Kurz, fokussiert, ohne Buzzwords.",
         },
         {
           title: "Konzept & Angebot",
@@ -245,11 +281,13 @@ export const translations: Record<Language, TranslationContent> = {
         },
         {
           title: "Entwicklung & Feedback",
-          description: "Kurze Sprints, klickbare Zwischenstände, schnelle Rückmeldung möglich.",
+          description:
+            "Kurze Sprints, klickbare Zwischenstände, schnelle Rückmeldung möglich.",
         },
         {
           title: "Launch & Support",
-          description: "Deployment, Monitoring und optional Begleitung nach dem Go-Live.",
+          description:
+            "Deployment, Monitoring und optional Begleitung nach dem Go-Live.",
         },
       ],
     },
@@ -320,15 +358,18 @@ export const translations: Record<Language, TranslationContent> = {
       timeline: [
         {
           title: "Studies & fundamentals",
-          description: "Solid foundation in software development, web tech, and architecture.",
+          description:
+            "Solid foundation in software development, web tech, and architecture.",
         },
         {
           title: "Professional projects",
-          description: "Experience with digital products for SMBs, startups, and internal teams.",
+          description:
+            "Experience with digital products for SMBs, startups, and internal teams.",
         },
         {
           title: "Side projects",
-          description: "Focused, pragmatic solutions with clear communication and short iterations.",
+          description:
+            "Focused, pragmatic solutions with clear communication and short iterations.",
         },
       ],
     },
@@ -380,47 +421,77 @@ export const translations: Record<Language, TranslationContent> = {
       groups: [
         {
           title: "Frontend",
-          items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+          items: [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Framer Motion",
+          ],
         },
         {
           title: "Backend",
-          items: ["Node.js", "REST APIs", "Next API Routes", "Prisma (optional)", "Auth"],
+          items: [
+            "Node.js",
+            "REST APIs",
+            "Next API Routes",
+            "Prisma (optional)",
+            "Auth",
+          ],
         },
         {
           title: "Deployment",
-          items: ["Vercel", "Docker", "CI/CD pipelines", "Monitoring & logging"],
+          items: [
+            "Vercel",
+            "Docker",
+            "CI/CD pipelines",
+            "Monitoring & logging",
+          ],
         },
       ],
     },
     projects: {
-      eyebrow: "Projects",
-      title: "Selected work and MVPs.",
-      description:
-        "From landing page to dashboard—always focused on usability and quick iteration.",
+      heading: "Projects",
+      subheading:
+        "A selection of projects where I designed, built or improved digital products, apps and websites.",
       cta: "Let’s talk",
-      detailsLabel: "Details coming soon",
-      projects: [
+      detailsLabel: "Learn more",
+      items: [
         {
-          title: "Customer portal for services",
-          description: "Self-service portal with login, ticket overview, and real-time status.",
-          tags: ["Next.js", "TypeScript", "REST", "Tailwind"],
+          id: "motoInside",
+          title: "Moto Inside Advertisement",
+          role: "Web development & data visualization",
+          shortDescription:
+            "Responsive advertising landing page for a motocross company in the Netherlands. Built in Webflow with embedded bar-chart visualizations, a contact form for quote requests and a clear story around supporting motorsport venues, fans and young technical talent.",
+          tags: [
+            "HTML/CSS",
+            "Webflow Development",
+            "JavaScript",
+            "Figma Design",
+          ],
         },
         {
-          title: "Landing + mini shop",
-          description: "Lightweight product management, checkout flow, and conversion tracking.",
-          tags: ["Next.js", "UX", "Payments", "Analytics"],
+          id: "lifebonusPro",
+          title: "LifeBonus Pro – Mobile App",
+          role: "Full-stack development",
+          shortDescription:
+            "Mobile app that helps caregivers improve daily movement, mindfulness and preventive health. Worked as a full-stack developer in an agile team, implementing and improving features using React Native, TypeScript, AWS and Python.",
+          tags: [
+            "React Native",
+            "TypeScript",
+            "React",
+            "AWS",
+            "Python",
+            "Agile Development",
+          ],
         },
         {
-          title: "Internal dashboard solution",
-          description:
-            "Metrics, tables, and exports for weekly reports—performant and clear.",
-          tags: ["React", "Charts", "Automation"],
-        },
-        {
-          title: "Mobile MVP for events",
-          description:
-            "Cross-platform app with push updates, offline info, and feedback form.",
-          tags: ["Mobile", "API", "UX", "Feedback loops"],
+          id: "helloTraffic",
+          title: "Hello Traffic – Location Analytics",
+          role: "Product development & frontend",
+          shortDescription:
+            "Platform for high-precision footfall and location analytics – built for expansion managers, developers, brokers, owners and center managers. Uses more than 50 million anonymized GPS data points per day to turn location decisions from gut feeling into data-driven strategy.",
+          tags: ["React", "Node.js", "Express.js", "Data Analytics"],
         },
       ],
     },
@@ -432,11 +503,13 @@ export const translations: Record<Language, TranslationContent> = {
       steps: [
         {
           title: "Intro call & requirements",
-          description: "We clarify goals, priorities, and constraints. Short, focused, no buzzwords.",
+          description:
+            "We clarify goals, priorities, and constraints. Short, focused, no buzzwords.",
         },
         {
           title: "Concept & proposal",
-          description: "A clear roadmap with estimates, milestones, and realistic timelines.",
+          description:
+            "A clear roadmap with estimates, milestones, and realistic timelines.",
         },
         {
           title: "Build & feedback",
@@ -444,7 +517,8 @@ export const translations: Record<Language, TranslationContent> = {
         },
         {
           title: "Launch & support",
-          description: "Deployment, monitoring, and optional support after go-live.",
+          description:
+            "Deployment, monitoring, and optional support after go-live.",
         },
       ],
     },

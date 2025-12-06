@@ -12,15 +12,12 @@ export function ProjectsSection() {
       className="scroll-mt-28 rounded-3xl border border-slate-200 bg-white/80 px-6 py-16 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/80 lg:px-12"
     >
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div className="space-y-2">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-            {t.projects.eyebrow}
-          </p>
+        <div className="space-y-3">
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-            {t.projects.title}
+            {t.projects.heading}
           </h2>
           <p className="max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-            {t.projects.description}
+            {t.projects.subheading}
           </p>
         </div>
         <a
@@ -32,9 +29,9 @@ export function ProjectsSection() {
       </div>
 
       <div className="mt-8 grid gap-6 md:grid-cols-2">
-        {t.projects.projects.map((project, index) => (
+        {t.projects.items.map((project, index) => (
           <motion.article
-            key={project.title}
+            key={project.id}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -42,11 +39,16 @@ export function ProjectsSection() {
             className="flex h-full flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/70"
           >
             <div className="space-y-3">
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
-                {project.title}
-              </h3>
+              <div className="space-y-1">
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
+                  {project.title}
+                </h3>
+                <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">
+                  {project.role}
+                </p>
+              </div>
               <p className="text-base leading-relaxed text-slate-600 dark:text-slate-300">
-                {project.description}
+                {project.shortDescription}
               </p>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
