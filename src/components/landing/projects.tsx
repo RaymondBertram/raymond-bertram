@@ -1,0 +1,84 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { projects } from "./content";
+
+export function ProjectsSection() {
+  return (
+    <section
+      id="projects"
+      className="scroll-mt-28 rounded-3xl border border-slate-200 bg-white/80 px-6 py-16 shadow-sm backdrop-blur lg:px-12"
+    >
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="space-y-2">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+            Projekte
+          </p>
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+            Ausgewählte Arbeiten und MVPs.
+          </h2>
+          <p className="max-w-2xl text-lg leading-relaxed text-slate-600">
+            Von Landingpage bis Dashboard – immer mit Fokus auf Nutzbarkeit und
+            schnelle Iteration.
+          </p>
+        </div>
+        <a
+          href="#contact"
+          className="inline-flex items-center justify-center rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-100"
+        >
+          Lass uns sprechen
+        </a>
+      </div>
+
+      <div className="mt-8 grid gap-6 md:grid-cols-2">
+        {projects.map((project, index) => (
+          <motion.article
+            key={project.title}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ delay: index * 0.05, duration: 0.45 }}
+            className="flex h-full flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+          >
+            <div className="space-y-3">
+              <h3 className="text-xl font-semibold text-slate-900">
+                {project.title}
+              </h3>
+              <p className="text-base leading-relaxed text-slate-600">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <button className="mt-6 inline-flex w-max items-center gap-2 text-sm font-semibold text-slate-900 underline-offset-4 hover:underline">
+              Details folgen
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="h-4 w-4"
+                aria-hidden
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17.25 8.25L21 12l-3.75 3.75m-14.25-3.75H21"
+                />
+              </svg>
+            </button>
+          </motion.article>
+        ))}
+      </div>
+    </section>
+  );
+}

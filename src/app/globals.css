@@ -4,21 +4,18 @@
 
 @layer components {
   .ge-container {
-    @apply container mx-auto;
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
   }
 }
 
 :root {
-  --background-color-1: 0, 0, 0;
-  --background-color-2: 255, 255, 255;
+  color-scheme: light;
 }
 
 body {
-  background-color: --background-color-1;
+  @apply bg-slate-50 text-slate-900 antialiased;
 }
 
-@media only screen and (min-width: 1024px) {
-  .split-container {
-    padding-right: 300px;
-  }
+a {
+  @apply transition-colors duration-200;
 }
