@@ -1,13 +1,15 @@
+import type { AppProps } from "next/app";
 import Layout from "../components/layout";
+import { Providers } from "@/contexts/Providers";
 
 import "../app/globals.css";
 
-export default function MyApp({ Component, pageProps }: any) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div>
+    <Providers>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </div>
+    </Providers>
   );
 }
