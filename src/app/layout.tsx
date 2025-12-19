@@ -1,19 +1,28 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 import { inter } from "./fonts";
 import Navigation from "@/components/navigation/navigation.component";
 import Footer from "@/components/footer/footer.component";
+import { Providers } from "@/contexts/Providers";
 
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Raymond Bertram - Full Stack Software Engineer",
-  description: "Explore the portfolio of Raymond Bertram, a Full Stack Software Engineer specializing in web and mobile app development using Next.js, React, and TypeScript.",
-  applicationName: "Raymond Bertram",
+  title: "Raymond Bertram – Softwareentwickler für Web & Apps",
+  description:
+    "Minimalistisches Portfolio von Raymond Bertram: Web- & App-Entwicklung, digitale Lösungen für kleine Unternehmen, Selbstständige und Nebenprojekte.",
+  applicationName: "Raymond Bertram Portfolio",
   authors: [{ name: "Raymond Bertram", url: "https://bertram-tech.de" }],
-  generator: "Raymond Bertram",
-  keywords: ["Raymond Bertram", "Portfolio", "Full Stack Software Engineer", "Next.js", "React", "TypeScript", "Web Development", "Mobile App Development"],
-  publisher: "Raymond Bertram",
+  keywords: [
+    "Softwareentwickler",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Webentwicklung",
+    "Appentwicklung",
+    "Freelance",
+    "Nebenberuflich",
+  ],
   category: "Portfolio",
 };
 
@@ -23,12 +32,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">   
-      <body className={inter.className}>
-      <Navigation />   
-        {children}
-        <Analytics/>
-        <Footer />
+    <html lang="de" className="scroll-smooth">
+      <body
+        className={`${inter.className} bg-slate-50 text-slate-900 transition-colors dark:bg-slate-950 dark:text-slate-50`}
+      >
+        <Providers>
+          <Navigation />
+          {children}
+          <Analytics />
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
