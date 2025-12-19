@@ -6,6 +6,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 export default function Footer() {
   const { t } = useLanguage();
   const year = new Date().getFullYear();
+  const GITHUB_URL = "https://github.com/RaymondBertram";
+  const LINKEDIN_URL = "https://www.linkedin.com/in/raymond-bertram";
 
   return (
     <footer className="border-t border-slate-200 bg-white/70 dark:border-slate-800 dark:bg-slate-900/70">
@@ -45,14 +47,18 @@ export default function Footer() {
             </a>
             <span className="text-slate-300 dark:text-slate-700">•</span>
             <a
-              href="https://www.linkedin.com"
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noreferrer"
               className="hover:text-slate-900 dark:hover:text-white"
             >
               {t.footer.linkedin}
             </a>
             <span className="text-slate-300 dark:text-slate-700">•</span>
             <a
-              href="https://github.com"
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noreferrer"
               className="hover:text-slate-900 dark:hover:text-white"
             >
               {t.footer.github}
