@@ -44,7 +44,7 @@ export default function MyWork() {
         "This is a advertisement page for a motor cross company in the netherlands. I built a responsive web page using Webflow and adding custom embedded code to show data in a bar-chart.",
       img: motoInside,
       screenId: "/projects/motoinside",
-      link: "https://motoinside.app/advertentie",
+      link: "https://motoinside.app/en/advertentie/",
     },
   };
 

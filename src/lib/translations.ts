@@ -48,6 +48,7 @@ export type TranslationContent = {
       id: string;
       title: string;
       role: string;
+      link: string;
       shortDescription: string;
       tags: string[];
     }[];
@@ -229,6 +230,7 @@ export const translations: Record<Language, TranslationContent> = {
           id: "motoInside",
           title: "Moto Inside – Werbeseite",
           role: "Webentwicklung & Datenvisualisierung",
+          link: "https://motoinside.app/en/advertentie/",
           shortDescription:
             "Responsives Werbe- und Landingpage-Konzept für ein niederländisches Motocross-Unternehmen. Umsetzung in Webflow inklusive eingebettetem Balkendiagramm, Kontaktformular für Angebotsanfragen und klarer Story rund um Nachwuchs- und Standortförderung im Motorsport.",
           tags: [
@@ -242,6 +244,7 @@ export const translations: Record<Language, TranslationContent> = {
           id: "lifebonusPro",
           title: "LifeBonus Pro – Mobile App",
           role: "Full-Stack Entwicklung",
+          link: "https://www.lifebonus.health/",
           shortDescription:
             "Mobile App, die Pflegekräfte bei Bewegung, Achtsamkeit und präventiver Gesundheitsförderung unterstützt. Mitarbeit als Full-Stack Entwickler: neue Features mit React Native, TypeScript und AWS umgesetzt und bestehende Funktionen in einem agilen Team weiterentwickelt.",
           tags: [
@@ -257,6 +260,7 @@ export const translations: Record<Language, TranslationContent> = {
           id: "helloTraffic",
           title: "Hello Traffic – Standortanalyse",
           role: "Produktentwicklung & Frontend",
+          link: "https://hello-traffic.de/",
           shortDescription:
             "Plattform für hochpräzise Frequenzanalysen von Standorten – für Expansionsmanager, Projektentwickler, Makler, Eigentümer und Centermanager. Auf Basis von täglich über 50 Mio. anonymisierten GPS-Datenpunkten werden Standortentscheidungen datenbasiert statt aus dem Bauch heraus getroffen.",
           tags: ["React", "Node.js", "Express.js", "Data Analytics"],
@@ -461,6 +465,7 @@ export const translations: Record<Language, TranslationContent> = {
           id: "motoInside",
           title: "Moto Inside Advertisement",
           role: "Web development & data visualization",
+          link: "https://motoinside.app/en/advertentie/",
           shortDescription:
             "Responsive advertising landing page for a motocross company in the Netherlands. Built in Webflow with embedded bar-chart visualizations, a contact form for quote requests and a clear story around supporting motorsport venues, fans and young technical talent.",
           tags: [
@@ -474,6 +479,7 @@ export const translations: Record<Language, TranslationContent> = {
           id: "lifebonusPro",
           title: "LifeBonus Pro – Mobile App",
           role: "Full-stack development",
+          link: "https://www.lifebonus.health/",
           shortDescription:
             "Mobile app that helps caregivers improve daily movement, mindfulness and preventive health. Worked as a full-stack developer in an agile team, implementing and improving features using React Native, TypeScript, AWS and Python.",
           tags: [
@@ -489,6 +495,7 @@ export const translations: Record<Language, TranslationContent> = {
           id: "helloTraffic",
           title: "Hello Traffic – Location Analytics",
           role: "Product development & frontend",
+          link: "https://hello-traffic.de/",
           shortDescription:
             "Platform for high-precision footfall and location analytics – built for expansion managers, developers, brokers, owners and center managers. Uses more than 50 million anonymized GPS data points per day to turn location decisions from gut feeling into data-driven strategy.",
           tags: ["React", "Node.js", "Express.js", "Data Analytics"],

@@ -1,16 +1,11 @@
 "use client";
 
-import { FormEvent, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export function ContactSection() {
   const { t } = useLanguage();
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setSubmitted(true);
-  };
+  const GITHUB_URL = "https://github.com/RaymondBertram";
+  const LINKEDIN_URL = "https://www.linkedin.com/in/raymond-bertram";
 
   return (
     <section
@@ -36,10 +31,20 @@ export function ContactSection() {
               {t.contact.email}
             </a>
             <a
-              href="https://www.linkedin.com"
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex w-max items-center gap-2 font-semibold text-slate-900 underline-offset-4 hover:underline dark:text-white"
             >
               {t.contact.linkedin}
+            </a>
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex w-max items-center gap-2 font-semibold text-slate-900 underline-offset-4 hover:underline dark:text-white"
+            >
+              GitHub
             </a>
           </div>
         </div>
@@ -48,55 +53,22 @@ export function ContactSection() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-300">
             {t.contact.requestTitle}
           </p>
-          <form className="mt-5 space-y-4" onSubmit={handleSubmit}>
+          <div className="mt-5 space-y-4">
+            <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-200">
+              {t.contact.description}
+            </p>
             <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-800 dark:text-slate-100">
-                {t.contact.nameLabel}
-              </label>
-              <input
-                type="text"
-                name="name"
-                required
-                placeholder={t.contact.namePlaceholder}
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-100 dark:border-slate-700 dark:bg-slate-800/80 dark:text-white dark:focus:border-white dark:focus:ring-slate-700"
-              />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-800 dark:text-slate-100">
+              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400">
                 {t.contact.emailLabel}
-              </label>
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder={t.contact.emailPlaceholder}
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-100 dark:border-slate-700 dark:bg-slate-800/80 dark:text-white dark:focus:border-white dark:focus:ring-slate-700"
-              />
+              </span>
+              <a
+                href={`mailto:${t.contact.email}`}
+                className="inline-flex w-full items-center justify-between rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition hover:-translate-y-[1px] hover:border-slate-400 dark:border-slate-700 dark:bg-slate-800/80 dark:text-white dark:hover:border-slate-600"
+              >
+                {t.contact.email}
+              </a>
             </div>
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-800 dark:text-slate-100">
-                {t.contact.messageLabel}
-              </label>
-              <textarea
-                name="message"
-                required
-                rows={4}
-                placeholder={t.contact.messagePlaceholder}
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-100 dark:border-slate-700 dark:bg-slate-800/80 dark:text-white dark:focus:border-white dark:focus:ring-slate-700"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-[1px] hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
-            >
-              {t.contact.submit}
-            </button>
-            {submitted && (
-              <p className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">
-                {t.contact.success}
-              </p>
-            )}
-          </form>
+          </div>
         </div>
       </div>
     </section>
