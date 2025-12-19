@@ -44,9 +44,6 @@ export function ProcessSection() {
             <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
               {step.description}
             </p>
-            {index < t.process.steps.length - 1 && (
-              <div className="absolute right-[-12px] top-1/2 hidden h-[1px] w-6 bg-slate-200 dark:bg-slate-700 lg:block" />
-            )}
           </motion.div>
         ))}
       </div>
