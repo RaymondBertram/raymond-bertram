@@ -48,7 +48,7 @@ export type TranslationContent = {
       id: string;
       title: string;
       role: string;
-      link: string;
+      link?: string;
       shortDescription: string;
       tags: string[];
     }[];
@@ -226,6 +226,33 @@ export const translations: Record<Language, TranslationContent> = {
       cta: "Lass uns sprechen",
       detailsLabel: "Mehr erfahren",
       items: [
+        {
+          id: "roggemannJobs",
+          title: "Roggemann Gruppe – Karriereportal",
+          role: "Webentwicklung & Recruiting UX",
+          link: "https://roggemanngruppe-jobs.de/",
+          shortDescription:
+            "Modernes Karriereportal für die Roggemann Gruppe mit filterbarer Stellensuche, Einblicken in Unternehmenskultur und Benefits sowie einem klar strukturierten Bewerbungsprozess. Die responsive Umsetzung führt Interessierte gezielt von der ersten Orientierung bis zur passenden Stelle.",
+          tags: [
+            "Webentwicklung",
+            "Responsive Design",
+            "Jobportal",
+            "UX/UI",
+          ],
+        },
+        {
+          id: "documentAutomation",
+          title: "Projektautomatisierung – Dokumentensortierung",
+          role: "Prozessautomatisierung & Dokumentenanalyse",
+          shortDescription:
+            "Eigenes Sortiersystem zur automatisierten Analyse und Klassifizierung von PDF-Dokumenten. Mit Power Automate und Microsoft-365-Apps werden Dateien anhand ihrer Inhalte erkannt, strukturiert einsortiert und für nachgelagerte Arbeitsabläufe bereitgestellt.",
+          tags: [
+            "Power Automate",
+            "Microsoft 365",
+            "PDF-Analyse",
+            "Prozessautomatisierung",
+          ],
+        },
         {
           id: "motoInside",
           title: "Moto Inside – Werbeseite",
@@ -461,6 +488,33 @@ export const translations: Record<Language, TranslationContent> = {
       cta: "Let’s talk",
       detailsLabel: "Learn more",
       items: [
+        {
+          id: "roggemannJobs",
+          title: "Roggemann Group – Careers Portal",
+          role: "Web development & recruitment UX",
+          link: "https://roggemanngruppe-jobs.de/",
+          shortDescription:
+            "Modern careers portal for the Roggemann Group featuring filtered job search, insights into company culture and benefits, and a clearly structured application process. The responsive experience guides candidates from initial discovery to the right vacancy.",
+          tags: [
+            "Web Development",
+            "Responsive Design",
+            "Job Portal",
+            "UX/UI",
+          ],
+        },
+        {
+          id: "documentAutomation",
+          title: "Project Automation – Document Sorting",
+          role: "Process automation & document analysis",
+          shortDescription:
+            "Custom sorting system for automated PDF document analysis and classification. Power Automate and Microsoft 365 apps identify files by their content, organize them into the correct structure and prepare them for downstream workflows.",
+          tags: [
+            "Power Automate",
+            "Microsoft 365",
+            "PDF Analysis",
+            "Process Automation",
+          ],
+        },
         {
           id: "motoInside",
           title: "Moto Inside Advertisement",

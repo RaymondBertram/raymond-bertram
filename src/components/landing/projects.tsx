@@ -61,29 +61,31 @@ export function ProjectsSection() {
                 ))}
               </div>
             </div>
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex w-max items-center gap-2 text-sm font-semibold text-slate-900 underline-offset-4 hover:underline dark:text-white"
-            >
-              {t.projects.detailsLabel}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="h-4 w-4"
-                aria-hidden
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex w-max items-center gap-2 text-sm font-semibold text-slate-900 underline-offset-4 hover:underline dark:text-white"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.25 8.25L21 12l-3.75 3.75m-14.25-3.75H21"
-                />
-              </svg>
-            </a>
+                {t.projects.detailsLabel}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="h-4 w-4"
+                  aria-hidden
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17.25 8.25L21 12l-3.75 3.75m-14.25-3.75H21"
+                  />
+                </svg>
+              </a>
+            )}
           </motion.article>
         ))}
       </div>
